@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- We can access ng instead of like data=ng=init or data-ng-bind -->
+    <div ng-app="myApp" ng-controller="myCntrl" ng-init="firstName='Tamim'">
+      <h2>Hello ANGULAR</h2>
+      <p>Name: <input type="text" ng-model="name" /></p>
+      <p ng-bind="name"></p>
+      <h2>Access Variables :<span ng-bind="firstName"></span></h2>
+
+      <h3>Accessing expressions {{50 * 50}}</h3>
+
+      <p>We Can access ng-bind exactly like expressions</p>
+      <p>Description: <input type="text" ng-model="des" /></p>
+      <p>{{des}}</p>
+
+      <div>
+        <p>FirstName : <input type="text" ng-model="firstName" /></p>
+        <p>LastName : <input type="text" ng-model="lastName" /></p>
+
+        <p>Name: {{firstName + ' ' + lastName}}</p>
+      </div>
+    </div>
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myCntrl", function ($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+      });
+    </script>
+  </body>
+</html>
